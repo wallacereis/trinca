@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "36RuLm0qrD/ka3D/nNqo2lvsiYoKCdEAD/IZaoVhp6i+LtIL1KCf0pQmtGs4ZGRHBc3ZVtwJIuZlLW5OSRLFzQ==",
+  "success": true,
+  "projectFilePath": "C:\\WR3 Digital\\Xamarin\\ChurrasTrincaAPP\\ChurrasTrincaAPP\\ChurrasTrincaAPP.iOS\\ChurrasTrincaAPP.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\walla\\.nuget\\packages\\acr.userdialogs\\7.1.0.514\\acr.userdialogs.7.1.0.514.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\btprogresshud\\1.3.1\\btprogresshud.1.3.1.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\flurl\\3.0.2\\flurl.3.0.2.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\flurl.http\\3.2.0\\flurl.http.3.2.0.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\refractored.mvvmhelpers\\1.6.2\\refractored.mvvmhelpers.1.6.2.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\xamarin.communitytoolkit\\1.3.0-pre1\\xamarin.communitytoolkit.1.3.0-pre1.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\walla\\.nuget\\packages\\xamarin.forms\\5.0.0.2083\\xamarin.forms.5.0.0.2083.nupkg.sha512"
+  ],
+  "logs": []
+}

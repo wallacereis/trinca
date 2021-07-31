@@ -95,13 +95,25 @@ namespace ChurrasTrincaAPP.ViewModels.Home
                     break;
 
                 case "Editar BBQ":
-                    await NavigationService.Navigate<EditarBBQViewModel>(_credential, obj);
+                    await VerificarParticipantes(obj);
                     break;
 
                 case "Remover BBQ":
                     await ExecuteRemoveBBQAsync(obj);
                     break;
             }
+        }
+
+        private async Task VerificarParticipantes(BBQ obj)
+        {
+            if(obj.Participants.Count > 0)
+            {
+                await DisplayAlert("Atenção!", "Existem Participantes neste BBQ! Edição não permitida!","OK!");
+                IsBusy = false;
+                await LoadEventsAsync();
+                return;
+            }
+            await NavigationService.Navigate<EditarBBQViewModel>(_credential, obj);
         }
 
         private async Task ExecuteRegisterBBQCommandAsync()
