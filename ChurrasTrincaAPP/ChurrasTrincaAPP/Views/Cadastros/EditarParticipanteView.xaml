@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:ChurrasTrincaAPP.Converters"
+             x:Class="ChurrasTrincaAPP.Views.Cadastros.EditarParticipanteView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <util:CurrencyConverter x:Key="currencyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,Auto,*" RowSpacing="0" ColumnSpacing="0" Padding="0" Margin="0">
+            <Grid Grid.Row="0" RowDefinitions="Auto"  ColumnDefinitions="*" VerticalOptions="StartAndExpand">
+                <Image Grid.Row="0" Source="bbq" Aspect="AspectFit"/>
+            </Grid>
+            <!-- top controls -->
+            <Label 
+                Grid.Row="1" 
+                Text="Registrar Participante" 
+                FontSize="30" 
+                TextColor="#000000"
+                FontFamily="{StaticResource Key=FontBold}" 
+                Margin="0,-110,0,0" 
+                HorizontalTextAlignment="Center"
+             />
+            <Grid Grid.Row="2" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="0" ColumnSpacing="0" Padding="0" Margin="20,-50,20,0">
+                <Label 
+                    Grid.Row="0" 
+                    Text="Nome (*)" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0" 
+                 />
+                <Entry
+                    Grid.Row="1" 
+                    x:Name="txtNome"
+                    Keyboard="Text"
+                    HeightRequest="40"
+                    TextColor="#000000"
+                    FontSize="20"
+                    Text="{Binding NomeParticipante}"
+                    Margin="0"
+                />
+                <Label 
+                    Grid.Row="2" 
+                    Text="Valor Pago" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0,10,0,0" 
+                 />
+                <Entry
+                    Grid.Row="3" 
+                    x:Name="txtValorPago"
+                    Keyboard="Numeric"
+                    HeightRequest="40"
+                    TextColor="#000000"
+                    FontSize="20"
+                    Text="{Binding ValorPago, Converter={StaticResource currencyConverter}}"
+                    Margin="0"
+                />
+                <Grid Grid.Row="4"  ColumnDefinitions="Auto,Auto" RowSpacing="0" ColumnSpacing="0" Padding="0" Margin="0,30">
+                    <Label 
+                    Grid.Row="0"
+                    Grid.Column="0" 
+                    Text="Confirmado?" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0" 
+                 />
+                    <CheckBox 
+                    Grid.Row="0"
+                    Grid.Column="1" 
+                    x:Name="chkConfirmed"
+                    IsChecked="{Binding IsConfirmed}"
+                    Margin="10,-3,0,0"
+                />
+                </Grid>
+            </Grid>
+            <!-- bottom controls -->
+            <Button 
+                Grid.Row="3" 
+                x:Name="btnConfirmar"
+                HeightRequest="45"
+                WidthRequest="282"
+                TextColor="White"
+                Text="Confirmar" 
+                Command="{Binding ConfirmCommand}" 
+                CornerRadius="20" 
+                BackgroundColor="#000000" 
+                Padding="0"
+                Margin="40"
+                VerticalOptions="End"
+            />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

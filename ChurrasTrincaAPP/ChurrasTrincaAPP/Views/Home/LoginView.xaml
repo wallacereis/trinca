@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ChurrasTrincaAPP.CustomRenderer"
+             x:Class="ChurrasTrincaAPP.Views.Home.LoginView"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,Auto"  RowSpacing="0" ColumnSpacing="0" Margin="0" Padding="0">
+            <Grid Grid.Row="0" RowDefinitions="Auto"  ColumnDefinitions="*" VerticalOptions="StartAndExpand">
+                <Image Grid.Row="0" Source="bbq" Aspect="AspectFit"/>
+            </Grid>
+            <!-- top controls -->
+            <Label 
+                Grid.Row="1" 
+                Text="Agenda de Churras" 
+                FontSize="30" 
+                TextColor="#000000"
+                FontFamily="{StaticResource Key=FontBold}" 
+                Margin="0,-110,0,0" 
+                HorizontalTextAlignment="Center"
+             />
+            <Grid Grid.Row="2" RowSpacing="0" RowDefinitions="Auto,Auto,Auto,Auto,Auto" Padding="0" Margin="30,-35,30,30">
+                <Label 
+                    Grid.Row="0"
+                    Text="Login" 
+                    FontSize="17" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FonRegular}" 
+                    Margin="0,0,0,10" 
+                 />
+                <controls:RoundedEntry
+                    Grid.Row="1"
+                    x:Name="txtLogin"
+                    Keyboard="Text"
+                    HeightRequest="40"
+                    Placeholder="Por favor, informe o Login"
+                    PlaceholderColor="Black"
+                    TextColor="#000000"
+                    FontSize="17"
+                    BackgroundColor="White"
+                    FontFamily="{StaticResource Key=FonRegular}"
+                    Text="{Binding CredentialModel.Username}"
+                />
+                <Label 
+                    Grid.Row="2"
+                    Text="Senha" 
+                    FontSize="17" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FonRegular}" 
+                    Margin="0,20,0,10" 
+                 />
+                <controls:RoundedEntry
+                    Grid.Row="3"
+                    x:Name="txtSenha"
+                    Keyboard="Default"
+                    HeightRequest="40"
+                    Placeholder="Por favor, informe a Senha"
+                    PlaceholderColor="Black"
+                    TextColor="#000000"
+                    IsPassword="True"
+                    FontSize="17"
+                    BackgroundColor="White"
+                    FontFamily="{StaticResource Key=FonRegular}"
+                    Text="{Binding CredentialModel.Password}"
+                />
+                <!-- bottom controls -->
+                <Button 
+                    Grid.Row="4"
+                    x:Name="btnLogin"
+                    HeightRequest="45"
+                    WidthRequest="282"
+                    TextColor="White"
+                    Text="Entrar" 
+                    Command="{Binding LoginCommand}" 
+                    CornerRadius="20" 
+                    BackgroundColor="#000000" 
+                    Padding="0"
+                    Margin="0,50,0,0"
+                />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

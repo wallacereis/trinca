@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontawesome="clr-namespace:FontAwesome"
+             x:Class="ChurrasTrincaAPP.Views.Modal.MensagemView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,450,*" RowSpacing="0" Padding="10,0">
+            <!-- top controls -->
+            <Image 
+                Source="logo"
+                Aspect="AspectFit"
+                WidthRequest="128"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                Margin="0,10"
+                Grid.Row="0"
+            />
+            <!-- middle cntrols -->
+            <Frame
+                BackgroundColor="White"
+                CornerRadius="10"
+                Padding="10"
+                Margin="0"
+                Grid.Row="1">
+                <StackLayout Padding="0,70">
+                    <Label 
+                        Text="{x:Static fontawesome:FontAwesomeIcons.Check}"
+                        TextColor="#FFD836"
+                        FontFamily="{StaticResource FontAwesomeSolid}" 
+                        FontSize="128"
+                        Margin="20,17,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                    />
+                    <Label 
+                        FontSize="Large"
+                        Text="{Binding Mensagem}"
+                        TextColor="Black"                    
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="CenterAndExpand"
+                    />
+                </StackLayout>
+            </Frame>
+            <!-- bottom controls -->
+            <Button 
+                Grid.Row="2" 
+                x:Name="btnClose"
+                HeightRequest="45"
+                WidthRequest="282"
+                TextColor="White"
+                Text="Fechar" 
+                Command="{Binding CloseCommand}" 
+                CornerRadius="20" 
+                BackgroundColor="#000000" 
+                Padding="0"
+                Margin="40"
+                VerticalOptions="End"
+            />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

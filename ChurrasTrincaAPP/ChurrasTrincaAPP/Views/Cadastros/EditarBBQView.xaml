@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:ChurrasTrincaAPP.Converters"
+             x:Class="ChurrasTrincaAPP.Views.Cadastros.EditarBBQView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <util:CurrencyConverter x:Key="currencyConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,Auto,*" RowSpacing="0" ColumnSpacing="0" Padding="0" Margin="0">
+            <Grid Grid.Row="0" RowDefinitions="Auto"  ColumnDefinitions="*" VerticalOptions="StartAndExpand">
+                <Image Grid.Row="0" Source="bbq" Aspect="AspectFit"/>
+            </Grid>
+            <!-- top controls -->
+            <Label 
+                Grid.Row="1" 
+                Text="Registrar BBQ" 
+                FontSize="30" 
+                TextColor="#000000"
+                FontFamily="{StaticResource Key=FontBold}" 
+                Margin="0,-110,0,0" 
+                HorizontalTextAlignment="Center"
+             />
+            <Grid Grid.Row="2" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="0" ColumnSpacing="0" Padding="0" Margin="20,-50,20,0">
+                <Label 
+                    Grid.Row="0" 
+                    Text="Título (*)" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0" 
+                 />
+                <Entry
+                    Grid.Row="1" 
+                    x:Name="txtTitle"
+                    Keyboard="Text"
+                    HeightRequest="40"
+                    TextColor="#000000"
+                    FontSize="20"
+                    Text="{Binding Titulo}"
+                    Margin="0"
+                />
+                <Label 
+                    Grid.Row="2" 
+                    Text="Descrição (*)" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0,10,0,0" 
+                 />
+                <Entry
+                    Grid.Row="3" 
+                    x:Name="txtDescription"
+                    Keyboard="Text"
+                    HeightRequest="40"
+                    TextColor="#000000"
+                    FontSize="20"
+                    Text="{Binding Descricao}"
+                    Margin="0"
+                />
+                <Label 
+                    Grid.Row="4" 
+                    Text="Data do Evento (*)" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0,10,0,0" 
+                 />
+                <DatePicker
+                    Grid.Row="5"
+                    x:Name="dataEventoPicker"
+                    MinimumDate="01/01/1970" 
+                    MaximumDate="01/01/2100"
+                    Format="dd/MM/yyyy"
+                    Date="{Binding DataEvento}"
+                    BackgroundColor="Transparent"
+                    TextColor="Black"
+                    FontSize="16"                          
+                    Margin="0"
+                />
+                <Label 
+                    Grid.Row="6" 
+                    Text="Valor por Pessoa (*)" 
+                    FontSize="Subtitle" 
+                    TextColor="#000000"
+                    FontFamily="{StaticResource Key=FontBold}" 
+                    Margin="0,10,0,0"
+                 />
+                <Entry
+                    Grid.Row="7" 
+                    x:Name="txtValuePerPerson"
+                    Keyboard="Numeric"
+                    HeightRequest="40"
+                    TextColor="#000000"
+                    FontSize="20"
+                    Text="{Binding ValorPessoa, Converter={StaticResource currencyConverter}}"
+                    Margin="0"
+                />
+            </Grid>
+            <!-- bottom controls -->
+            <Button 
+                Grid.Row="3" 
+                x:Name="btnConfirmar"
+                HeightRequest="45"
+                WidthRequest="282"
+                TextColor="White"
+                Text="Confirmar" 
+                Command="{Binding ConfirmCommand}" 
+                CornerRadius="20" 
+                BackgroundColor="#000000" 
+                Padding="0"
+                Margin="40"
+                VerticalOptions="End"
+            />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

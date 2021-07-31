@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:fontawesome="clr-namespace:FontAwesome"
+             x:Class="ChurrasTrincaAPP.Views.Home.HomePageView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,250,*"  RowSpacing="0" ColumnSpacing="0" Margin="0" Padding="0">
+            <Grid Grid.Row="0" RowDefinitions="Auto"  ColumnDefinitions="*" VerticalOptions="StartAndExpand">
+                <Image Grid.Row="0" Source="bbq" Aspect="AspectFit"/>
+            </Grid>
+            <!-- top controls -->
+            <Label 
+                Grid.Row="1" 
+                Text="Agenda de Churras" 
+                FontSize="30" 
+                TextColor="#000000"
+                FontFamily="{StaticResource Key=FontBold}" 
+                Margin="0,-110,0,0"  
+                HorizontalTextAlignment="Center"
+             />
+            <RefreshView 
+                Grid.Row="2" 
+                IsRefreshing="{Binding IsRefresh, Mode=TwoWay}" 
+                RefreshColor="#FFD836" 
+                Command="{Binding RefreshCommand}" 
+                Margin="0,-50,0,0">
+                <CollectionView 
+                    x:Name="collectionViewBBQ"
+                    ItemsSource="{Binding BBQs}" 
+                    SelectionMode="Single"
+                    SelectionChangedCommand="{Binding SelectCommand}"
+                    SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference collectionViewBBQ}}"
+                    Margin="0">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid RowDefinitions="Auto,Auto" RowSpacing="0" ColumnSpacing="0" Padding="5" Margin="0">
+                                <Frame Grid.Row="1" BackgroundColor="White" HorizontalOptions="CenterAndExpand" HasShadow="True" Padding="0" Margin="0">
+                                    <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" HorizontalOptions="CenterAndExpand" WidthRequest="282" HeightRequest="100" Padding="10" Margin="0">
+                                        <Label 
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="2"
+                                            FontSize="20"
+                                            Text="{Binding date, StringFormat='{0:dd/MM}'}"
+                                            TextColor="Black"
+                                            FontFamily="{StaticResource Key=FontBold}" />
+                                        <Label 
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="2"
+                                            FontSize="Medium"
+                                            Text="{Binding title}"
+                                            TextColor="Black"
+                                        />
+                                        <Label 
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            Text="{x:Static fontawesome:FontAwesomeIcons.Users}"
+                                            TextColor="#FFD836"
+                                            FontFamily="{StaticResource FontAwesomeSolid}" 
+                                            FontSize="16"
+                                            Margin="0,17,0,0"
+                                            HorizontalOptions="Start"
+                                        />
+                                        <Label 
+                                            Grid.Row="2"
+                                            Grid.Column="0"
+                                            FontSize="15"
+                                            Text="{Binding TotalParticipantes}"
+                                            TextColor="Black"
+                                            HorizontalOptions="Start" 
+                                            Margin="25,12,0,0"
+                                        />
+                                        <Label 
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            Text="{x:Static fontawesome:FontAwesomeIcons.CommentDollar}"
+                                            TextColor="#FFD836"
+                                            FontFamily="{StaticResource FontAwesomeSolid}" 
+                                            FontSize="16"
+                                            Margin="0,17,75,0"
+                                            HorizontalOptions="End"
+                                        />
+                                        <Label 
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            FontSize="15"
+                                            Text="{Binding ValorTotalPago,StringFormat='{0:C}'}"
+                                            TextColor="Black"
+                                            HorizontalOptions="End" 
+                                            Margin="0,12,0,0"
+                                        />
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+            <!-- bottom controls -->
+            <Button 
+                Grid.Row="3"
+                x:Name="btnRegisterBBQ"
+                HeightRequest="45"
+                WidthRequest="282"
+                TextColor="White"
+                Text="Adicionar Churras" 
+                Command="{Binding RegisterBBQCommand}" 
+                CornerRadius="20" 
+                BackgroundColor="#000000" 
+                Padding="0"
+                Margin="40"
+                VerticalOptions="End"
+            />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

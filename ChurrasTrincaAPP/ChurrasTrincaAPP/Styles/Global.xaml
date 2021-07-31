@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    >
+
+    <!-- App Background Color -->
+    <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="#F8EFE8" />
+    </Style>
+
+    <!-- Label Fonts Regular -->
+    <OnPlatform x:TypeArguments="x:String" x:Key="FonRegular">
+        <On Platform="Android" Value="Raleway-Regular.ttf#Font" />
+        <On Platform="iOS" Value="Raleway-Regular" />
+    </OnPlatform>
+
+    <!-- Label Fonts Bold -->
+    <OnPlatform x:TypeArguments="x:String" x:Key="FontBold">
+        <On Platform="Android" Value="Raleway-Bold.ttf#Font" />
+        <On Platform="iOS" Value="Raleway-Bold" />
+    </OnPlatform>
+
+    <!-- Label Fonts -->
+    <Style TargetType="Label">
+        <Setter Property="FontFamily">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Raleway-Regular.ttf#Font" />
+                    <On Platform="iOS" Value="Raleway-Regular" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Entry Fonts -->
+    <Style TargetType="Entry">
+        <Setter Property="FontFamily">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Raleway-Regular.ttf#Font" />
+                    <On Platform="iOS" Value="Raleway-Regular" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Picker Fonts -->
+    <Style TargetType="Picker">
+        <Setter Property="FontFamily">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="Android" Value="Raleway-Regular.ttf#Font" />
+                    <On Platform="iOS" Value="Raleway-Regular" />
+                </OnPlatform>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Global styles-->
+    <Style TargetType="Frame">
+        <Setter Property="CornerRadius"      Value="10"/>
+        <Setter Property="HasShadow"         Value="False"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+    </Style>
+    <!-- -->
+    <Style x:Key="MainAmount" TargetType="Label">
+        <Setter Property="FontAttributes"    Value="Bold"/>
+        <Setter Property="FontSize"          Value="22"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="SecundaryText" TargetType="Label">
+        <Setter Property="TextColor"         Value="Silver"/>
+        <Setter Property="FontSize"          Value="16"/>
+    </Style>
+    <Style x:Key="DivisionLine" TargetType="Line">
+        <Setter Property="TranslationY"      Value="{d:OnPlatform Android='20', iOS='20'}"/>
+        <Setter Property="VerticalOptions"   Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="StrokeDashArray"   Value="2,2"/>
+        <Setter Property="X2"                Value="320"/>
+        <Setter Property="StrokeLineCap"     Value="Square"/>
+        <Setter Property="Stroke"            Value="Silver"/>
+        <Setter Property="StrokeThickness"   Value="2"/>
+    </Style>
+
+</ResourceDictionary>
